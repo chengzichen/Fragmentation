@@ -29,9 +29,9 @@ task clean(type: Delete) {
 }
 
 ext {
-    compileSdkVersion = 28
-    minSdkVersion = 14
+    compileSdkVersion = 33
+    minSdkVersion = 33
     targetSdkVersion = compileSdkVersion
 
-    appCompatVersion = "1.1.0-alpha01"
+    appCompatVersion = "1.6.0"
 }

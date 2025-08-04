@@ -82,17 +82,17 @@ public class FragmentationMagician {
     private static void hookStateSaved(FragmentManager fragmentManager, Runnable runnable) {
         if (!(fragmentManager instanceof FragmentManagerImpl)) return;
 
+
         FragmentManagerImpl fragmentManagerImpl = (FragmentManagerImpl) fragmentManager;
         if (isStateSaved(fragmentManager)) {
-            boolean tempStateSaved = fragmentManagerImpl.mStateSaved;
-            boolean tempStopped = fragmentManagerImpl.mStopped;
-            fragmentManagerImpl.mStateSaved = false;
-            fragmentManagerImpl.mStopped = false;
+            fragmentManagerImpl.noteStateNotSaved();
 
-            runnable.run();
-
-            fragmentManagerImpl.mStopped = tempStopped;
-            fragmentManagerImpl.mStateSaved = tempStateSaved;
+            try {
+                runnable.run();
+            } finally {
+                // 由于mStateSaved和mStopped字段现在是私有的，我们无法直接恢复它们的状态
+                // noteStateNotSaved()方法已经处理了状态变更，这里不再需要手动恢复
+            }
         } else {
             runnable.run();
         }
