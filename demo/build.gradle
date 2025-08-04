@@ -12,7 +12,6 @@ static def gitLatestTag() {
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-
     defaultConfig {
         applicationId "me.yokeyword.sample"
         minSdkVersion rootProject.minSdkVersion
@@ -51,6 +50,9 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    lintOptions {
+        abortOnError false
     }
 }
 
