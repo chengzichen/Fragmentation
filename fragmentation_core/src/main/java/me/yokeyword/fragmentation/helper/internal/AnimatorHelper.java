@@ -60,7 +60,7 @@ public final class AnimatorHelper {
     }
 
     private Animation initEnterAnim() {
-        if (fragmentAnimator.getEnter() == 0) {
+        if (fragmentAnimator==null||fragmentAnimator.getEnter() == 0) {
             enterAnim = AnimationUtils.loadAnimation(context, R.anim.no_anim);
         } else {
             enterAnim = AnimationUtils.loadAnimation(context, fragmentAnimator.getEnter());
@@ -69,7 +69,7 @@ public final class AnimatorHelper {
     }
 
     private Animation initExitAnim() {
-        if (fragmentAnimator.getExit() == 0) {
+        if (fragmentAnimator==null||fragmentAnimator.getExit() == 0) {
             exitAnim = AnimationUtils.loadAnimation(context, R.anim.no_anim);
         } else {
             exitAnim = AnimationUtils.loadAnimation(context, fragmentAnimator.getExit());
@@ -78,7 +78,7 @@ public final class AnimatorHelper {
     }
 
     private Animation initPopEnterAnim() {
-        if (fragmentAnimator.getPopEnter() == 0) {
+        if (fragmentAnimator==null||fragmentAnimator.getPopEnter() == 0) {
             popEnterAnim = AnimationUtils.loadAnimation(context, R.anim.no_anim);
         } else {
             popEnterAnim = AnimationUtils.loadAnimation(context, fragmentAnimator.getPopEnter());
@@ -87,7 +87,7 @@ public final class AnimatorHelper {
     }
 
     private Animation initPopExitAnim() {
-        if (fragmentAnimator.getPopExit() == 0) {
+        if (fragmentAnimator==null||fragmentAnimator.getPopExit() == 0) {
             popExitAnim = AnimationUtils.loadAnimation(context, R.anim.no_anim);
         } else {
             popExitAnim = AnimationUtils.loadAnimation(context, fragmentAnimator.getPopExit());
